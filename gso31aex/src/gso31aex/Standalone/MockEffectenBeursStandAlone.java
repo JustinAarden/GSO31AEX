@@ -14,11 +14,11 @@ import javax.swing.Timer;
  */
 public class MockEffectenBeursStandAlone {
 
-    String name1 = " Philips: ";
-    String name2 = " Rabobank: ";
-    String name3 = " LG Electronics: ";
-    String name4 = " Sony: ";
-    String name5 = " Asus: ";
+    String name1 = "\t   Philips: ";
+    String name2 = "\t   Rabobank: ";
+    String name3 = "\t   LG Electronics: ";
+    String name4 = "\t   Sony: ";
+    String name5 = "\t   Asus: ";
     Random rand = new Random();
     int random1;
     int random2;
