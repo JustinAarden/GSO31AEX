@@ -1,7 +1,6 @@
 package gso31aex.Client;
 
 import gso31aex.Shared.IEffectenbeurs;
-import gso31aex.Shared.MockEffectenBeurs;
 import java.awt.*;
 import java.awt.event.*;
 import java.rmi.NotBoundException;
@@ -46,19 +45,18 @@ public class BannerApplet extends JApplet {
 
         if (registry != null) {
 
-                try {
-                    ieffect = (IEffectenbeurs) registry.lookup(bindingName);
-                    System.out.println("Client: Still connected");
-                } catch (RemoteException ex) {
-                    System.out.println("Client: Cannot bind Effectenbeurs");
-                    System.out.println("Client: RemoteException: " + ex.getMessage());
-                    ieffect = null;
-                } catch (NotBoundException ex) {
-                    System.out.println("Client: Cannot bind Effectenbeur");
-                    System.out.println("Client: NotBoundException: " + ex.getMessage());
-                    ieffect = null;
-                }
-
+            try {
+                ieffect = (IEffectenbeurs) registry.lookup(bindingName);
+                System.out.println("Client: Still connected");
+            } catch (RemoteException ex) {
+                System.out.println("Client: Cannot bind Effectenbeurs");
+                System.out.println("Client: RemoteException: " + ex.getMessage());
+                ieffect = null;
+            } catch (NotBoundException ex) {
+                System.out.println("Client: Cannot bind Effectenbeur");
+                System.out.println("Client: NotBoundException: " + ex.getMessage());
+                ieffect = null;
+            }
 
             if (ieffect != null) {
                 System.out.println("Client: Effectenbeur bound");
@@ -81,9 +79,15 @@ public class BannerApplet extends JApplet {
                 repaint();
                 // Print contents of registry
             });
-                    }
+        }
     }
 
+    /*
+    
+     START TEKENEN VAN APPLET en PANEL!!!
+    
+    
+     */
     public class TextPane extends JPanel {
 
         int xPos = 420;

@@ -2,20 +2,20 @@ package gso31aex.Standalone;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.util.Random;
 import javax.swing.*;
 
 /*
  * <applet code="TextBanner" width=600 height=50> </applet>
  */
 public class BannerAppletStandAlone extends JApplet {
+
     MockEffectenBeursStandAlone mock = new MockEffectenBeursStandAlone();
-   
+
     // Set colors and initialize thread.
     @Override
     public void init() {
         mock.timerinterval = 3000;
-        mock.aexNumber();        
+        mock.aexNumber();
 
         EventQueue.invokeLater(() -> {
             try {
@@ -34,7 +34,6 @@ public class BannerAppletStandAlone extends JApplet {
 
     public class TextPane extends JPanel {
 
-        
         int xPos = 420;
 
         int msgWidth;
@@ -47,11 +46,11 @@ public class BannerAppletStandAlone extends JApplet {
             setForeground(Color.RED);
 
             setFont(new Font("Arial", Font.PLAIN, 30));
-            
+
             Timer timer = new Timer(6, (ActionEvent e) -> {
                 xPos += direction;
                 FontMetrics fm = getFontMetrics(getFont());
-                
+
                 if ((xPos < -fm.stringWidth(mock.aex()))) {
                     xPos = 420; //waneer eind van string uit beeld gaat wordt deze direct weer getekend
                 }

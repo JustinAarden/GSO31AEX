@@ -14,8 +14,5 @@ import java.rmi.RemoteException;
  * @author Justin
  */
 public interface IEffectenbeurs extends Remote {
-    //public String getAex() throws RemoteException;
     public String getAex() throws RemoteException;
-    public void generate() throws RemoteException;
-    
 }

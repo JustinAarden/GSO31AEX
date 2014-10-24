@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package gso31aex.Standalone;
+
 import java.awt.event.ActionEvent;
 import java.util.Random;
 import javax.swing.Timer;
@@ -26,7 +27,7 @@ public class MockEffectenBeursStandAlone {
     int random4;
     int random5;
     public int timerinterval; //eerste keer direct genereren zonder pause anders staat er eerste secondes 0!!    
-    
+
     public void aexNumber() {
         Timer ramdomTimer = new Timer(timerinterval, (ActionEvent e) -> {
             random1 = rand.nextInt(99 - 1);
@@ -36,18 +37,15 @@ public class MockEffectenBeursStandAlone {
             random5 = rand.nextInt(99 - 4);
 
         });
-        
+
         ramdomTimer.setRepeats(true);
         ramdomTimer.setCoalesce(true);
         ramdomTimer.start();
-        
 
     }
-    
-    
-    public String aex()
-    {
-        String aexString = name1+random1+name2+random2+name3+random3+name4+random4+name5+random5;
+
+    public String aex() {
+        String aexString = name1 + random1 + name2 + random2 + name3 + random3 + name4 + random4 + name5 + random5;
         return aexString;
     }
 

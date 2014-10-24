@@ -10,7 +10,7 @@ import gso31aex.Shared.MockEffectenBeurs;
 import java.awt.event.ActionEvent;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.ArrayList;
+
 import javax.swing.Timer;
 
 /**
@@ -21,14 +21,13 @@ public class EffectenBeursAdmin extends UnicastRemoteObject implements IEffecten
 
     MockEffectenBeurs mock1;
     public String aexKoersen;
-    public String aexKoersen1;
-    //String test = mock.createAexString();
+
 
     public EffectenBeursAdmin() throws RemoteException {
 
         MockEffectenBeurs mock = new MockEffectenBeurs();
         mock.aexNumber();
-        Timer timer = new Timer(1, (ActionEvent e) -> {
+        Timer timer = new Timer(1000, (ActionEvent e) -> { //om de seconde update hij de koersen
             aexKoersen = mock.createAexString();
 
         });
@@ -36,16 +35,6 @@ public class EffectenBeursAdmin extends UnicastRemoteObject implements IEffecten
         timer.setRepeats(true);
         timer.setCoalesce(true);
         timer.start();
-    }
-
-    @Override
-    public void generate() {
-
-        mock1.aexNumber();
-    }
-
-    public void refresher() {
-
     }
 
     @Override

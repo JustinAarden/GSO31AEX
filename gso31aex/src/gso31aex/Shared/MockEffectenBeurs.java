@@ -5,12 +5,7 @@
  */
 package gso31aex.Shared;
 
-import gso31aex.Standalone.*;
-import gso31aex.Server.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.Serializable;
-import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.Timer;

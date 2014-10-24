@@ -4,14 +4,9 @@
  */
 package gso31aex.Server;
 
-import gso31aex.Shared.MockEffectenBeurs;
-import java.awt.event.ActionEvent;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.Timer;
 
 /**
  *
@@ -21,8 +16,6 @@ public class RMIServer {
 
     // Set flag createRegistry when binding using registry
     // Reset flag createRegistry when binding using Naming
-
-
     // Set port number
     private static int portNumber = 1098;
 
@@ -32,25 +25,22 @@ public class RMIServer {
     // References to registry and student administration
     private Registry registry = null;
     private EffectenBeursAdmin ebAdmin;
-    
-
 
     // Constructor
     // Constructor
     public RMIServer() {
-          
+
 //        ebAdmin.generateNumbers();
         // Print port number for registry
         System.out.println("Server: Port number " + portNumber);
 
         try {
-            
+
             ebAdmin = new EffectenBeursAdmin();
         } catch (RemoteException ex) {
             ebAdmin = null;
-        } 
-        
-        
+        }
+
         // Create registry at port number
         try {
             registry = LocateRegistry.createRegistry(portNumber);
@@ -61,16 +51,14 @@ public class RMIServer {
             registry = null;
         }
 
-
         try {
             registry.rebind(bindingName, ebAdmin);
-            } catch (RemoteException ex) {
+        } catch (RemoteException ex) {
             System.out.println("Server: Cannot bind Effectenbeurs");
             System.out.println("Server: RemoteException: " + ex.getMessage());
         }
 
     }
-                
 
     public static void main(String[] args) {
 
