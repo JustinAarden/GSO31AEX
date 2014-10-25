@@ -1,5 +1,6 @@
 package gso31aex.Standalone;
 
+import gso31aex.Standalone.BannerAppletStandAlone;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -7,28 +8,29 @@ import javax.swing.*;
 /*
  * <applet code="TextBanner" width=600 height=50> </applet>
  */
-public class BannerAppletStandAlone extends JApplet {
+public class BannerAppletStandAlone extends JFrame {
 
     MockEffectenBeursStandAlone mock = new MockEffectenBeursStandAlone();
 
     // Set colors and initialize thread.
-    @Override
-    public void init() {
-        mock.timerinterval = 3000;
-        mock.aexNumber();
 
-        EventQueue.invokeLater(() -> {
-            try {
-                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
-            }
+    
+    
 
-            setBackground(Color.BLACK);
-            setForeground(Color.RED);
-            setSize(400, 100);
-            setLayout(new BorderLayout());
-            add(new TextPane());
+    public BannerAppletStandAlone() {
 
+        setBackground(Color.BLACK);
+        setResizable(false);
+        setSize(400, 100);
+        setLayout(new BorderLayout());
+        add(new TextPane());
+        repaint();
+
+    
+    }
+        public static void main(String[] argv) {
+        java.awt.EventQueue.invokeLater(() -> {
+            new BannerAppletStandAlone().setVisible(true);
         });
     }
 
@@ -41,7 +43,7 @@ public class BannerAppletStandAlone extends JApplet {
         private int direction = -1;
 
         public TextPane() {
-            setOpaque(false);
+            setOpaque(true);
             setBackground(Color.BLACK);
             setForeground(Color.RED);
 
