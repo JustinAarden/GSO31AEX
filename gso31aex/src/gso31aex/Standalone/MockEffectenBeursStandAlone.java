@@ -26,10 +26,10 @@ public class MockEffectenBeursStandAlone {
     int random3;
     int random4;
     int random5;
-    public int timerinterval; //eerste keer direct genereren zonder pause anders staat er eerste secondes 0!!    
+    
 
     public void aexNumber() {
-        Timer ramdomTimer = new Timer(timerinterval, (ActionEvent e) -> {
+        Timer ramdomTimer = new Timer(2000, (ActionEvent e) -> {
             random1 = rand.nextInt(99 - 1);
             random2 = rand.nextInt(99 - 2);
             random3 = rand.nextInt(99 - 6);

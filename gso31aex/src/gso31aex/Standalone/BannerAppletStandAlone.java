@@ -18,6 +18,7 @@ public class BannerAppletStandAlone extends JFrame {
     
 
     public BannerAppletStandAlone() {
+        mock.aexNumber();
 
         setBackground(Color.BLACK);
         setResizable(false);
